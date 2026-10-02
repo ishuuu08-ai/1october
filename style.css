@@ -254,7 +254,8 @@ h1 em {
   font-family: "DM Serif Display", serif;
   font-size: clamp(20px, 3.8vw, 27px);
   line-height: 1.75;
-  animation: letterScroll 120s linear 8s infinite;
+  animation: letterScroll 240s linear 10s infinite;
+  animation-delay: 10s;
 }
 
 .scroll-text p {
