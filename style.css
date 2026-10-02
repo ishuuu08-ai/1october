@@ -272,7 +272,7 @@ h1 em {
 .ending span { font-family: sans-serif; font-size: 26px; }
 
 @keyframes letterScroll {
-  from { transform: translateY(105%); }
+  from { transform: translateY(0%); }
   to { transform: translateY(-115%); }
 }
 
