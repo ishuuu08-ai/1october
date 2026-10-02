@@ -250,11 +250,11 @@ h1 em {
 .scroll-text {
   width: 84%;
   margin: 0 auto;
-  padding: 42px 0 50px;
+  padding: 25px 0 50px;
   font-family: "DM Serif Display", serif;
-  font-size: clamp(18px, 3.5vw, 25px);
-  line-height: 1.7;
-  animation: letterScroll 50s linear infinite;
+  font-size: clamp(20px, 3.8vw, 27px);
+  line-height: 1.75;
+  animation: letterScroll 120s linear 8s infinite;
 }
 
 .scroll-text p {
@@ -272,7 +272,7 @@ h1 em {
 .ending span { font-family: sans-serif; font-size: 26px; }
 
 @keyframes letterScroll {
-  from { transform: translateY(0%); }
+  from { transform: translateY(0); }
   to { transform: translateY(-115%); }
 }
 
