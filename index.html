@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#12070d" />
+  <title>Happy Boyfriend's Day Baby ❤️</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Great+Vibes&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="story">
+
+    <!-- SLIDE 1 -->
+    <section class="slide slide-one active" id="slide1">
+      <div class="glow"></div>
+      <div class="hearts" aria-hidden="true"></div>
+
+      <div class="photo photo-a"><img src="assets/s1-1.jpeg" alt="Us together"></div>
+      <div class="photo photo-b"><img src="assets/s1-2.jpeg" alt="Us together"></div>
+      <div class="photo photo-c"><img src="assets/s1-3.jpeg" alt="Us together"></div>
+      <div class="photo photo-d"><img src="assets/s1-4.jpeg" alt="Us together"></div>
+      <div class="photo photo-e"><img src="assets/s1-5.jpeg" alt="Us together"></div>
+      <div class="photo photo-f"><img src="assets/s1-6.jpeg" alt="Us together"></div>
+
+      <div class="title-wrap">
+        <p class="tiny">to my favourite person</p>
+        <h1>Happy<br><em>Boyfriend's Day</em><br>Baby 🫶🏻</h1>
+        <div class="line"></div>
+        <p class="subtitle">my favourite human, my safe place, my love ❤️</p>
+      </div>
+
+      <button class="next-btn" onclick="goToSlide(2)">Open my heart <span>♡</span></button>
+    </section>
+
+    <!-- SLIDE 2 -->
+    <section class="slide slide-two" id="slide2">
+      <div class="moving-bg" aria-hidden="true"></div>
+      <div class="hearts" aria-hidden="true"></div>
+
+      <div class="letter">
+        <div class="letter-top">A little something for you ❤️</div>
+        <div class="scroll-window">
+          <div class="scroll-text">
+            <p>Happy Boyfriend’s Day baby 🫶🏻❤️</p>
+
+            <p>You are the best thing which is happened to me ❤️🥹 I don’t know if tu nahi hota toh mai kya karungi 🥺 You are my life, you are my love ❤️ You mean to me a lot 🫶🏻 and seriously, you became the best boyfriend 🥹❤️</p>
+
+            <p>You do so much for me, you make me so much happy 🥰 You do so many efforts for me which I love so much 🫶🏻 and also, you make me happy when I’m sad 🥺❤️ You support me throughout, and you will support me, I know 🤞🏻❤️</p>
+
+            <p>I will give you every happiness of your life 🫶🏻 I will be there for you and I will give you all the love and happiness you deserve ❤️🥹 You are a great human, great son, great boyfriend ❤️ and you will be good and best in every role 🫶🏻✨</p>
+
+            <p>I know I am very lucky to have you 🥹❤️ You are the best best thing which happened to me. I feel blessed that I met you 🫶🏻 and I will make sure that you will feel proud of having me and loved by me ❤️</p>
+
+            <p>Thank you for loving me so much and caring for me so much 🥺❤️ And also, you are the best boyfriend 🫶🏻❤️</p>
+
+            <div class="ending">I really love you ❤️🥹🫶🏻</div>
+          </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Floating photos -->
+      <div class="floating-photo fp1"><img src="assets/s2-1.jpeg" alt=""></div>
+      <div class="floating-photo fp2"><img src="assets/s2-2.jpeg" alt=""></div>
+      <div class="floating-photo fp3"><img src="assets/s2-3.jpeg" alt=""></div>
+      <div class="floating-photo fp4"><img src="assets/s2-4.jpeg" alt=""></div>
+      <div class="floating-photo fp5"><img src="assets/s2-5.jpeg" alt=""></div>
+      <div class="floating-photo fp6"><img src="assets/s2-6.jpeg" alt=""></div>
+      <div class="floating-photo fp7"><img src="assets/s2-7.jpeg" alt=""></div>
+      <div class="floating-photo fp8"><img src="assets/s2-8.jpeg" alt=""></div>
+      <div class="floating-photo fp9"><img src="assets/s2-9.jpeg" alt=""></div>
+
+      <button class="back-btn" onclick="goToSlide(1)">↩</button>
+      <div class="end-note">made with lots of love ❤️</div>
+    </section>
+  </main>
+
+<audio id="bgMusic" loop preload="auto">
+    <source src="assets/song.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    const bgMusic = document.getElementById("bgMusic");
+
+    function startMusic() {
+      bgMusic.volume = 0.72;
+      bgMusic.play().catch(() => {});
+    }
+
+    function goToSlide(number) {
+      if (number === 2) startMusic();
+      const s1 = document.getElementById('slide1');
+      const s2 = document.getElementById('slide2');
+
+      if (number === 2) {
+        s1.classList.remove('active');
+        s2.classList.add('active');
+        document.body.classList.add('opened');
+      } else {
+        s2.classList.remove('active');
+        s1.classList.add('active');
+        document.body.classList.remove('opened');
+      }
+      window.scrollTo(0, 0);
+    }
+
+    // Small floating hearts — intentionally lightweight for phones.
+    const heartContainers = document.querySelectorAll('.hearts');
+    heartContainers.forEach(container => {
+      for (let i = 0; i < 18; i++) {
+        const h = document.createElement('span');
+        h.textContent = Math.random() > 0.5 ? '♥' : '♡';
+        h.style.left = (Math.random() * 100) + '%';
+        h.style.animationDelay = (Math.random() * 8) + 's';
+        h.style.animationDuration = (6 + Math.random() * 7) + 's';
+        h.style.fontSize = (10 + Math.random() * 18) + 'px';
+        container.appendChild(h);
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,355 @@
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+:root {
+  --pink: #ff5c91;
+  --soft-pink: #ffb4ca;
+  --cream: #fff5f7;
+  --dark: #12070d;
+}
+
+html, body {
+  margin: 0;
+  width: 100%;
+  min-height: 100%;
+  background: var(--dark);
+  color: var(--cream);
+  font-family: "Montserrat", sans-serif;
+  overflow: hidden;
+}
+
+button { font: inherit; }
+
+.story, .slide {
+  width: 100%;
+  height: 100dvh;
+  min-height: 620px;
+}
+
+.slide {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 1s ease, visibility 1s ease;
+}
+
+.slide.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* ---------- SLIDE 1 ---------- */
+.slide-one {
+  background:
+    radial-gradient(circle at 50% 48%, rgba(255, 92, 145, .17), transparent 32%),
+    radial-gradient(circle at 10% 90%, rgba(255, 180, 202, .12), transparent 28%),
+    #12070d;
+}
+
+.glow {
+  position: absolute;
+  width: 55vmax;
+  height: 55vmax;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: rgba(255, 92, 145, .10);
+  filter: blur(50px);
+}
+
+.title-wrap {
+  position: absolute;
+  z-index: 10;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: min(86vw, 560px);
+  text-align: center;
+  padding: 30px 20px;
+  border-radius: 30px;
+  background: rgba(18, 7, 13, .42);
+  backdrop-filter: blur(7px);
+}
+
+.tiny {
+  margin: 0 0 12px;
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--soft-pink);
+}
+
+h1 {
+  margin: 0;
+  font-family: "DM Serif Display", serif;
+  font-size: clamp(48px, 11vw, 82px);
+  line-height: .94;
+  font-weight: 400;
+  text-shadow: 0 8px 35px rgba(0,0,0,.5);
+}
+
+h1 em {
+  font-family: "Great Vibes", cursive;
+  font-size: 1.18em;
+  color: #ff8eae;
+  font-weight: 400;
+}
+
+.line {
+  width: 70px;
+  height: 1px;
+  margin: 22px auto 14px;
+  background: var(--soft-pink);
+}
+
+.subtitle {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.6;
+  color: #ffdce6;
+  letter-spacing: .5px;
+}
+
+.photo {
+  position: absolute;
+  z-index: 4;
+  width: clamp(105px, 22vw, 185px);
+  aspect-ratio: 3 / 4;
+  padding: 6px;
+  background: rgba(255,255,255,.95);
+  box-shadow: 0 20px 45px rgba(0,0,0,.35);
+  border-radius: 4px;
+  animation: gentle 7s ease-in-out infinite;
+}
+
+.photo img, .floating-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 2px;
+}
+
+.photo-a { left: 5%; top: 7%; transform: rotate(-9deg); animation-delay: -.5s; }
+.photo-b { right: 5%; top: 7%; transform: rotate(8deg); animation-delay: -2s; }
+.photo-c { left: 2%; bottom: 7%; transform: rotate(7deg); animation-delay: -3.5s; }
+.photo-d { right: 3%; bottom: 7%; transform: rotate(-8deg); animation-delay: -5s; }
+.photo-e { left: 18%; bottom: 2%; transform: rotate(-4deg); animation-delay: -1.2s; width: clamp(90px, 18vw, 150px); }
+.photo-f { right: 18%; top: 2%; transform: rotate(4deg); animation-delay: -4.2s; width: clamp(90px, 18vw, 150px); }
+
+@keyframes gentle {
+  0%,100% { margin-top: 0; }
+  50% { margin-top: -12px; }
+}
+
+.next-btn {
+  position: absolute;
+  z-index: 20;
+  left: 50%;
+  bottom: max(22px, env(safe-area-inset-bottom));
+  transform: translateX(-50%);
+  border: 1px solid rgba(255,180,202,.55);
+  color: white;
+  background: rgba(255,92,145,.17);
+  backdrop-filter: blur(10px);
+  border-radius: 999px;
+  padding: 12px 20px;
+  cursor: pointer;
+  font-size: 12px;
+  letter-spacing: .5px;
+  box-shadow: 0 8px 25px rgba(0,0,0,.25);
+}
+
+.next-btn span { margin-left: 8px; font-size: 17px; }
+
+/* ---------- HEARTS ---------- */
+.hearts {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hearts span {
+  position: absolute;
+  bottom: -30px;
+  color: rgba(255, 119, 160, .5);
+  animation: floatHeart linear infinite;
+}
+
+@keyframes floatHeart {
+  from { transform: translateY(0) rotate(0deg); opacity: 0; }
+  15% { opacity: .7; }
+  85% { opacity: .55; }
+  to { transform: translateY(-115vh) rotate(35deg); opacity: 0; }
+}
+
+/* ---------- SLIDE 2 ---------- */
+.slide-two {
+  background:
+    radial-gradient(circle at 50% 35%, rgba(255,92,145,.16), transparent 35%),
+    #0f070c;
+}
+
+.moving-bg {
+  position: absolute;
+  inset: -20%;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255,180,202,.09) 0 2px, transparent 3px),
+    radial-gradient(circle at 80% 70%, rgba(255,92,145,.10) 0 2px, transparent 3px);
+  background-size: 80px 80px, 110px 110px;
+  animation: bgMove 18s linear infinite;
+}
+
+@keyframes bgMove {
+  to { transform: translate(40px, -50px); }
+}
+
+.letter {
+  position: absolute;
+  z-index: 12;
+  left: 50%;
+  top: 8%;
+  transform: translateX(-50%);
+  width: min(76vw, 560px);
+  height: 84%;
+  border: 1px solid rgba(255,180,202,.26);
+  border-radius: 26px;
+  background: rgba(255, 248, 250, .96);
+  color: #30131e;
+  box-shadow: 0 30px 80px rgba(0,0,0,.5);
+  overflow: hidden;
+}
+
+.letter-top {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  padding: 18px 15px 15px;
+  font-family: "Great Vibes", cursive;
+  font-size: 27px;
+  color: #a82e59;
+  border-bottom: 1px solid rgba(168,46,89,.14);
+  background: rgba(255,248,250,.94);
+}
+
+.scroll-window {
+  height: calc(100% - 65px);
+  overflow: hidden;
+  position: relative;
+}
+
+.scroll-text {
+  width: 84%;
+  margin: 0 auto;
+  padding: 42px 0 50px;
+  font-family: "DM Serif Display", serif;
+  font-size: clamp(18px, 3.5vw, 25px);
+  line-height: 1.7;
+  animation: letterScroll 50s linear infinite;
+}
+
+.scroll-text p {
+  margin: 0 0 34px;
+}
+
+.ending {
+  text-align: center;
+  font-family: "Great Vibes", cursive;
+  font-size: 35px;
+  color: #b83362;
+  padding: 10px 0 100px;
+}
+
+.ending span { font-family: sans-serif; font-size: 26px; }
+
+@keyframes letterScroll {
+  from { transform: translateY(105%); }
+  to { transform: translateY(-115%); }
+}
+
+/* Photos orbit around the letter, never covering its readable center. */
+.floating-photo {
+  position: absolute;
+  z-index: 7;
+  width: clamp(72px, 13vw, 125px);
+  height: clamp(96px, 17vw, 165px);
+  padding: 4px;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0 15px 35px rgba(0,0,0,.4);
+  opacity: .9;
+  animation: drift 9s ease-in-out infinite;
+}
+
+.fp1 { left: 2%; top: 8%; transform: rotate(-8deg); animation-delay: -1s; }
+.fp2 { right: 2%; top: 10%; transform: rotate(8deg); animation-delay: -5s; }
+.fp3 { left: 1%; top: 39%; transform: rotate(7deg); animation-delay: -3s; }
+.fp4 { right: 1%; top: 42%; transform: rotate(-7deg); animation-delay: -7s; }
+.fp5 { left: 3%; bottom: 8%; transform: rotate(-6deg); animation-delay: -4s; }
+.fp6 { right: 3%; bottom: 8%; transform: rotate(6deg); animation-delay: -2s; }
+.fp7 { left: 15%; top: 2%; width: 80px; height: 105px; animation-delay: -6s; }
+.fp8 { right: 15%; bottom: 1%; width: 80px; height: 105px; animation-delay: -8s; }
+.fp9 { right: 8%; top: 28%; width: 65px; height: 90px; animation-delay: -9s; }
+
+@keyframes drift {
+  0%,100% { translate: 0 0; }
+  50% { translate: 0 -13px; }
+}
+
+.back-btn {
+  position: absolute;
+  z-index: 30;
+  left: 18px;
+  top: max(18px, env(safe-area-inset-top));
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,180,202,.35);
+  color: white;
+  background: rgba(0,0,0,.28);
+  backdrop-filter: blur(8px);
+  cursor: pointer;
+}
+
+.end-note {
+  position: absolute;
+  z-index: 20;
+  bottom: max(13px, env(safe-area-inset-bottom));
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255,220,230,.7);
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* Phones: make the letter a little wider and move photos farther outside. */
+@media (max-width: 600px) {
+  .title-wrap { width: 82vw; padding: 26px 12px; }
+  .photo { width: 92px; }
+  .photo-e, .photo-f { width: 76px; }
+  .letter { width: 72vw; height: 83%; top: 9%; }
+  .letter-top { font-size: 23px; padding: 15px 8px 12px; }
+  .scroll-text { width: 82%; font-size: 18px; line-height: 1.65; }
+  .floating-photo { width: 62px; height: 84px; }
+  .fp7, .fp8 { width: 52px; height: 70px; }
+  .fp9 { width: 48px; height: 66px; }
+}
+
+@media (max-height: 700px) {
+  .photo { width: 78px; }
+  .photo-e, .photo-f { width: 65px; }
+  .title-wrap { padding: 18px 12px; }
+  .tiny { margin-bottom: 7px; }
+  .line { margin: 12px auto 9px; }
+  .letter { top: 6%; height: 88%; }
+}
